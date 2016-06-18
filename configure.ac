@@ -171,7 +171,6 @@ AC_SUBST(SCIM_ANTHY_DATADIR)
         
 AC_CONFIG_FILES([
 Makefile
-intl/Makefile
 po/Makefile.in
 m4/Makefile
 src/Makefile
