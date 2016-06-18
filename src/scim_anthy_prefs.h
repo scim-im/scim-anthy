@@ -233,7 +233,7 @@
 #define SCIM_ANTHY_CONFIG_KEY_THEME_DEFAULT                   "Default"
 #define SCIM_ANTHY_CONFIG_KEY_THEME_FILE_DEFAULT              ""
 
-#define SCIM_ANTHY_CONFIG_ON_OFF_KEY_DEFAULT                  "Zenkaku_Hankaku,Control+j,Control+J"
+#define SCIM_ANTHY_CONFIG_ON_OFF_KEY_DEFAULT                  "Eisu_toggle,Zenkaku_Hankaku,Control+j,Control+J"
 #define SCIM_ANTHY_CONFIG_CIRCLE_INPUT_MODE_KEY_DEFAULT       "Control+comma,Control+less"
 #define SCIM_ANTHY_CONFIG_CIRCLE_KANA_MODE_KEY_DEFAULT        "Control+period,Control+greater,Hiragana_Katakana"
 #define SCIM_ANTHY_CONFIG_CIRCLE_TYPING_METHOD_KEY_DEFAULT    "Alt+Romaji,Control+slash"
