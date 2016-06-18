@@ -218,9 +218,9 @@ slot_imengine_event (const HelperAgent *agent, int ic,
         if (!reader.get_data (id) || !reader.get_data (time_msec))
             break;
         TimeoutContext *ctx = new TimeoutContext (ic, uuid, id);
-        guint timeout_id = gtk_timeout_add_full (time_msec,
+        guint timeout_id = g_timeout_add_full (G_PRIORITY_DEFAULT,
+						 timeout_msec,
                                                  timeout_func,
-                                                 NULL,
                                                  (gpointer) ctx,
                                                  timeout_ctx_destroy_func);
         timeout_ids[ic][id] = timeout_id;
@@ -234,7 +234,7 @@ slot_imengine_event (const HelperAgent *agent, int ic,
             timeout_ids[ic].find (id) != timeout_ids[ic].end ())
         {
             guint tid = timeout_ids[ic][id];
-            gtk_timeout_remove (tid);
+            g_source_remove (tid);
         }
         break;
     }
@@ -626,7 +626,11 @@ AnthyHelper::init (const ConfigPointer &config, const char *dsp)
                            TRUE, TRUE, FALSE);
     gtk_window_set_resizable (GTK_WINDOW (m_helper_window), FALSE);
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+    m_helper_vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+#else
     m_helper_vbox = gtk_vbox_new (FALSE, 0);
+#endif
     if (m_helper_vbox == NULL)
         return;
     gtk_container_add (GTK_CONTAINER (m_helper_window),
@@ -652,7 +656,11 @@ AnthyHelper::init (const ConfigPointer &config, const char *dsp)
 
     // lookup table
     m_lookup_table_visible = false;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    m_lookup_table_vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+#else
     m_lookup_table_vbox = gtk_vbox_new (TRUE, 0);
+#endif
     if (m_lookup_table_vbox == NULL)
         return;
     gtk_box_pack_end (GTK_BOX(m_helper_vbox),
@@ -1027,7 +1035,11 @@ AnthyHelper::hide_note ()
 
     m_note_visible = false;
 
+#if GTK_CHECK_VERSION(2, 24, 0)
+    gtk_widget_hide (m_note_window);
+#else
     gtk_widget_hide_all (m_note_window);
+#endif
 }
 
 void
