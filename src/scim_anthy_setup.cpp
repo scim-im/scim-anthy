@@ -316,7 +316,7 @@ static void     on_default_combo_changed          (GtkEditable      *editable,
                                                    gpointer          user_data);
 static void     on_default_option_menu_changed    (GtkWidget    *omenu,
                                                    gpointer          user_data);
-static void     on_preedit_style_menu_changed     (GtkOptionMenu    *omenu,
+static void     on_preedit_style_menu_changed     (GtkWidget    *omenu,
                                                    gpointer          user_data);
 static void     on_key_filter_selection_clicked   (GtkButton        *button,
                                                    gpointer          user_data);
@@ -895,7 +895,7 @@ key_list_view_popup_key_selection (GtkTreeView *treeview)
 #endif
                 data->changed = true;
                 __config_changed = true;
-     e      }
+            }
         }
 
         gtk_widget_destroy (dialog);
@@ -1286,7 +1286,7 @@ create_learning_page ()
         StringConfigData *entry = entries[i];
         widget = create_entry (entry->key, GTK_TABLE (table), i + 5);
         set_left_padding (widget, 20);
-        gtk_entry_set_editable (GTK_ENTRY (widget), FALSE);
+        gtk_editable_set_editable (GTK_EDITABLE (widget), FALSE);
         create_key_select_button (entry->key, GTK_TABLE (table), i + 5);
     }
 

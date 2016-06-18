@@ -108,21 +108,6 @@ AC_SUBST(ac_aux_dir)
 ANTHY_VERSION=7500
 PKG_CHECK_MODULES(ANTHY,[anthy >= $ANTHY_VERSION])
 
-# Check gtk2
-PKG_CHECK_MODULES(GTK2, [gtk+-2.0 >= 2.8.0],
-                        [HAS_GTK=yes],
-                        [HAS_GTK=no])
-
-AM_CONDITIONAL(SCIM_BUILD_HELPER, [test "$HAS_GTK" = "yes"])
-
-if test "$HAS_GTK" = "yes"; then
-  SCIM_BUILD_HELPER=1
-else
-  SCIM_BUILD_HELPER=0
-fi
-
-AC_SUBST(SCIM_BUILD_HELPER)
-
 # libtool option to control which symbols are exported
 # right now, symbols starting with _ are not exported
 LIBTOOL_EXPORT_OPTIONS='-export-symbols-regex "^[[^_]].*"'

@@ -234,7 +234,7 @@ kana_page_create_ui (void)
     GtkWidget *widget = create_entry (SCIM_ANTHY_CONFIG_LEFT_THUMB_SHIFT_KEY,
                                       GTK_TABLE (table), 5);
     set_left_padding (widget, 20);
-    gtk_entry_set_editable (GTK_ENTRY (widget), FALSE);
+    gtk_editable_set_editable (GTK_EDITABLE (widget), FALSE);
     widget = create_key_select_button (SCIM_ANTHY_CONFIG_LEFT_THUMB_SHIFT_KEY,
                                        GTK_TABLE (table), 5);
 
@@ -242,7 +242,7 @@ kana_page_create_ui (void)
     widget = create_entry (SCIM_ANTHY_CONFIG_RIGHT_THUMB_SHIFT_KEY,
                            GTK_TABLE (table), 6);
     set_left_padding (widget, 20);
-    gtk_entry_set_editable (GTK_ENTRY (widget), FALSE);
+    gtk_editable_set_editable (GTK_EDITABLE (widget), FALSE);
     widget = create_key_select_button (SCIM_ANTHY_CONFIG_RIGHT_THUMB_SHIFT_KEY,
                                        GTK_TABLE (table), 6);
 

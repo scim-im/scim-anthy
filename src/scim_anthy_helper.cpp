@@ -219,7 +219,7 @@ slot_imengine_event (const HelperAgent *agent, int ic,
             break;
         TimeoutContext *ctx = new TimeoutContext (ic, uuid, id);
         guint timeout_id = g_timeout_add_full (G_PRIORITY_DEFAULT,
-						 timeout_msec,
+						 time_msec,
                                                  timeout_func,
                                                  (gpointer) ctx,
                                                  timeout_ctx_destroy_func);
@@ -622,8 +622,10 @@ AnthyHelper::init (const ConfigPointer &config, const char *dsp)
     if (m_helper_window == NULL)
         return;
     gtk_window_set_default_size (GTK_WINDOW (m_helper_window), 100, 20);
+/*
     gtk_window_set_policy (GTK_WINDOW (m_helper_window),
                            TRUE, TRUE, FALSE);
+*/
     gtk_window_set_resizable (GTK_WINDOW (m_helper_window), FALSE);
 
 #if GTK_CHECK_VERSION(3, 0, 0)
@@ -674,8 +676,10 @@ AnthyHelper::init (const ConfigPointer &config, const char *dsp)
     if (m_note_window == NULL)
         return;
     gtk_window_set_default_size (GTK_WINDOW (m_note_window), 100, 20);
+/*
     gtk_window_set_policy (GTK_WINDOW (m_note_window),
                            TRUE, TRUE, FALSE);
+*/
     gtk_window_set_resizable (GTK_WINDOW (m_note_window), FALSE);
 
     m_note_event_box = gtk_event_box_new ();
