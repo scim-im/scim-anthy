@@ -106,7 +106,9 @@ AC_SUBST(ac_aux_dir)
 
 # Checks for anthy
 ANTHY_VERSION=7500
-PKG_CHECK_MODULES(ANTHY,[anthy >= $ANTHY_VERSION])
+PKG_CHECK_MODULES(ANTHY, [anthy-unicode], [], [
+    PKG_CHECK_MODULES(ANTHY,[anthy >= $ANTHY_VERSION])
+])
 
 # libtool option to control which symbols are exported
 # right now, symbols starting with _ are not exported
