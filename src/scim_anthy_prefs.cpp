@@ -242,8 +242,8 @@ BoolConfigData config_bool_common [] =
     },
     {
         NULL,
-        "",
-        "",
+        false,
+        false,
         NULL,
         NULL,
         NULL,
